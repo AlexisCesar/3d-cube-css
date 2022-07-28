@@ -1,0 +1,107 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #dad9d9;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 100vh;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotateY(0) rotateX(45deg) rotateZ(45deg);
+  }
+  to {
+    transform: rotateY(360deg) rotateX(45deg) rotateZ(45deg);
+  }
+}
+
+.dice {
+  position: relative;
+  width: 200px;
+  height: 200px;
+
+  transform-style: preserve-3d;
+  transform: rotateY(185deg) rotateX(150deg) rotateZ(315deg);
+
+  animation-name: rotate;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+.face {
+  position: absolute;
+  background-color: tomato;
+  border: 2px solid #282828;
+  width: 100%;
+  height: 100%;
+
+  opacity: 0.7;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.face::before {
+  content: "";
+  width: 20%;
+  height: 20%;
+  background-color: #282828;
+  border-radius: 50%;
+}
+
+.two::before {
+  background-color: transparent;
+  box-shadow: 70px 70px 0px #282828, -70px -70px 0px #282828;
+}
+
+.three::before {
+  box-shadow: 70px 70px 0px #282828, -70px -70px 0px #282828;
+}
+
+.four::before {
+  background-color: transparent;
+  box-shadow: 70px 70px 0px #282828, -70px -70px 0px #282828,
+    -70px 70px 0px #282828, 70px -70px 0px #282828;
+}
+
+.five::before {
+  box-shadow: 70px 70px 0px #282828, -70px -70px 0px #282828,
+    -70px 70px 0px #282828, 70px -70px 0px #282828;
+}
+
+.six::before {
+  background-color: transparent;
+  box-shadow: 70px 70px 0px #282828, -70px -70px 0px #282828,
+    -70px 70px 0px #282828, 70px -70px 0px #282828, 0px 70px 0px #282828,
+    0px -70px 0px #282828;
+}
+
+.one {
+  transform: translateZ(-100px);
+}
+
+.six {
+  transform: translateZ(100px);
+}
+
+.two {
+  transform: rotateX(90deg) translateZ(-100px);
+}
+
+.five {
+  transform: rotateX(-90deg) translateZ(-100px);
+}
+
+.three {
+  transform: rotateY(90deg) translateZ(100px);
+}
+
+.four {
+  transform: rotateY(-90deg) translateZ(100px);
+}
